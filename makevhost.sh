@@ -35,5 +35,10 @@ echo "
 <VirtualHost *:80>
     DocumentRoot "$HTTPDIR$SITENAME$PUBROOT"
     ServerName $SITENAME
+    <Directory $HTTPDIR$SITENAME$PUBROOT>
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
 </VirtualHost>
 " > "$SITESAVAILABLE$SITENAME.conf"
